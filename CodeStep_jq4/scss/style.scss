@@ -6,7 +6,6 @@ html {
 
 .img {
   width: 100%;
-  padding: 60px 30px 0 30px;
 
   img {
     max-width: 100%;
@@ -14,12 +13,88 @@ html {
   }
 
   ul {
-    list-style: none;
-    max-width: 1000px;
+    width: 100%;
     margin: 0 auto;
+    position: relative;
 
-    .slick-next:before, .slick-prev:before {
-      color: #000;
+    .prev,
+    .next {
+      // 矢印の作成
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      cursor: pointer;
+      opacity: 0.7;
+      position: absolute;
+      top: 45%;
+      transition: 0.5s;
+      z-index: 999;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 2px;
+        background-color: #000;
+        position: absolute;
+      }
+    }
+
+    // ひだり矢印用
+    .prev {
+      left: 0;
+
+      &::before,
+      &::after {
+        left: 12px;
+      }
+
+      &::before {
+        top: 37%;
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        bottom: 37%;
+        transform: rotate(45deg);
+      }
+    }
+    // 右矢印用
+    .next {
+      right: 0;
+
+      &::before,
+      &::after {
+        right: 12px;
+      }
+
+      &::before {
+        top: 37%;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 37%;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .img ul  
+  {
+    .next {
+      top: 40%;
+    }
+
+    .prev {
+      top: 40%;
     }
   }
 }

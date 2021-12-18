@@ -4,7 +4,6 @@ html {
 
 .img {
   width: 100%;
-  padding: 60px 30px 0 30px;
 }
 
 .img img {
@@ -13,11 +12,86 @@ html {
 }
 
 .img ul {
-  list-style: none;
-  max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
-.img ul .slick-next:before, .img ul .slick-prev:before {
-  color: #000;
+.img ul .prev,
+.img ul .next {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  cursor: pointer;
+  opacity: 0.7;
+  position: absolute;
+  top: 45%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 999;
+}
+
+.img ul .prev:hover,
+.img ul .next:hover {
+  opacity: 0.5;
+}
+
+.img ul .prev::before, .img ul .prev::after,
+.img ul .next::before,
+.img ul .next::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+}
+
+.img ul .prev {
+  left: 0;
+}
+
+.img ul .prev::before, .img ul .prev::after {
+  left: 12px;
+}
+
+.img ul .prev::before {
+  top: 37%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.img ul .prev::after {
+  bottom: 37%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.img ul .next {
+  right: 0;
+}
+
+.img ul .next::before, .img ul .next::after {
+  right: 12px;
+}
+
+.img ul .next::before {
+  top: 37%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.img ul .next::after {
+  bottom: 37%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 900px) {
+  .img ul .next {
+    top: 40%;
+  }
+  .img ul .prev {
+    top: 40%;
+  }
 }
